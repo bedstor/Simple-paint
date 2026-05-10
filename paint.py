@@ -10,10 +10,14 @@ def main():
 
     def draw(x,y):
         t.goto(x,y)
+        screen.update() # Обновляет экран вручную только после движения
+
 
     t.ondrag(draw)
 
     screen = t.getscreen()
+    screen.tracer(0) # Отключает автоматическую анимацию
+
     screen.listen()
 
     def move(x,y):
@@ -114,7 +118,8 @@ def main():
 
     screen.onkey(begin_fil, 'z')
     screen.onkey(end_fil, 'x')
-    
+    done()
+
 
 
 if __name__ == '__main__':
